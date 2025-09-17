@@ -1,0 +1,70 @@
+{
+    "pagination": {
+        "limit": 100,
+        "offset": 0,
+        "count": 1,
+        "total": 1
+    },
+    "data": [
+        {
+            "flight_date": "2025-09-17",
+            "flight_status": "scheduled",
+            "departure": {
+                "airport": "Gatwick",
+                "timezone": "Europe/London",
+                "iata": "LGW",
+                "icao": "EGKK",
+                "terminal": "N",
+                "gate": null,
+                "delay": null,
+                "scheduled": "2025-09-17T11:55:00+00:00",
+                "estimated": "2025-09-17T11:55:00+00:00",
+                "actual": null,
+                "estimated_runway": null,
+                "actual_runway": null
+            },
+            "arrival": {
+                "airport": "Sharm el-Sheikh International Airport",
+                "timezone": "Africa/Cairo",
+                "iata": "SSH",
+                "icao": "HESH",
+                "terminal": "1",
+                "gate": null,
+                "baggage": null,
+                "scheduled": "2025-09-17T19:20:00+00:00",
+                "delay": null,
+                "estimated": null,
+                "actual": null,
+                "estimated_runway": null,
+                "actual_runway": null
+            },
+            "airline": {
+                "name": "easyJet",
+                "iata": "U2",
+                "icao": "EZY"
+            },
+            "flight": {
+                "number": "8741",
+                "iata": "U28741",
+                "icao": "EZY18UP",
+                "codeshared": null
+            },
+            "aircraft": {
+                "registration": "G-UJEA",
+                "iata": "A20N",
+                "icao": "A20N",
+                "icao24": "407F79"
+            },
+            "live": {
+                "updated": "2025-09-17T12:26:11+00:00",
+                "latitude": 45.3584,
+                "longitude": 8.0831,
+                "altitude": 10652.8,
+                "direction": 122,
+                "speed_horizontal": 911.184,
+                "speed_vertical": 0,
+                "is_ground": false
+            }
+        }
+    ]
+}
