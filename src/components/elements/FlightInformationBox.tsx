@@ -64,7 +64,7 @@ const FlightInformationBox = ({ data }: FlightProps) => {
 
     return (
         <div className="flex flex-col justify-center items-center gap-4 sm:mt-5">
-            <Card className="w-full max-w-4xl bg-surface-800">
+            <Card className="w-6xl bg-surface-800">
                 <div className="flex items-center justify-between gap-3 p-4">
                     <div className="flex items-center gap-3">
                         <p className="text-lg font-medium">
