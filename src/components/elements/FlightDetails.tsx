@@ -25,7 +25,7 @@ const FlightDetails = () => {
     }, [code])
 
     if(loading) return <div><LoadingScreen /></div>
-    if(!code) return <div><CodeError /></div>
+    if(!code) return <div className='flex justify-center items-center min-h-[calc(100vh-10rem)] w-full'><CodeError /></div>
 
   return (
     <div>Flight number: {code}</div>
