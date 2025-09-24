@@ -2,13 +2,12 @@ import React from "react";
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "../ui/separator";
-import { Link, Plane } from "lucide-react";
+import { Plane, PlaneLanding, PlaneTakeoff } from "lucide-react";
+import Link from "next/link";
 
 type FlightProps = {
     data: FlightAPIResponse;
@@ -63,8 +62,8 @@ const FlightInformationBox = ({ data }: FlightProps) => {
     const flight = data.data[0];
 
     return (
-        <div className="flex flex-col justify-center items-center gap-4 sm:mt-5">
-            <Card className="w-6xl bg-surface-800">
+        <div className="w-full max-w-md sm:max-w-3xl md:max-w-4xl lg:max-w-6xl mx-auto flex flex-col justify-center items-center gap-4 sm:mt-5">
+            <Card className="w-full bg-surface-800 dark:bg-gray-800">
                 <div className="flex items-center justify-between gap-3 p-4">
                     <div className="flex items-center gap-3">
                         <p className="text-lg font-medium">
@@ -82,7 +81,7 @@ const FlightInformationBox = ({ data }: FlightProps) => {
                                 `Dati del volo ${flight.flight?.iata ?? "-"}`
                             )}
                         </p>
-                        {/* puoi tenere qui info aggiuntive se vuoi */}
+                        {" " + flight.flight?.icao}
                     </div>
 
                     <span
@@ -92,8 +91,10 @@ const FlightInformationBox = ({ data }: FlightProps) => {
                                 : flight.flight_status === "scheduled"
                                 ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                                 : flight.flight_status === "landed"
-                                ? "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
-                                : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                ? "bg-gray-100 text-gray-800 dark:bg-gray-600 dark:text-gray-200"
+                                : flight.flight_status === 'delayed' 
+                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                : 'bg-red-600 text-red-300'
                         }`}
                     >
                         {flight.flight_status}
@@ -106,7 +107,7 @@ const FlightInformationBox = ({ data }: FlightProps) => {
                         <div className="flex items-center justify-between">
                             {/* Left IATA */}
                             <div className="flex-1">
-                                <div className="text-5xl font-bold leading-none">
+                                <div className="text-3xl lg:text-5xl font-bold leading-none">
                                     {flight.departure.iata}
                                 </div>
                                 <div className="mt-2 text-sm text-muted-foreground">
@@ -125,7 +126,7 @@ const FlightInformationBox = ({ data }: FlightProps) => {
 
                             {/* Right IATA */}
                             <div className="flex-1 text-right">
-                                <div className="text-5xl font-bold leading-none">
+                                <div className="text-3xl lg:text-5xl font-bold leading-none">
                                     {flight.arrival.iata}
                                 </div>
                                 <div className="mt-2 text-sm text-muted-foreground">
@@ -137,13 +138,14 @@ const FlightInformationBox = ({ data }: FlightProps) => {
                 </CardHeader>
 
                 {/* CONTENUTO: colonna partenza / arrivo come nel design */}
-                <div className="grid grid-cols-2 sm:grid-cols-1">
+                <div className="grid grid-cols-1">
                     <CardContent className="pt-2 pb-2 sm:w-full">
                         <div className="px-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                                 {/* Partenza */}
-                                <div className="space-y-3 border-r md:border-r md:border-transparent md:pr-6 sm:w-full">
-                                    <div className="flex items-center justify-between">
+                                <div className="space-y-3 md:pr-6 sm:w-full">
+                                    <div className="flex items-center justify-start gap-4">
+                                        <PlaneTakeoff />
                                         <h3 className="font-semibold text-green-400">
                                             {flight.departure.airport} ·{" "}
                                             {dateShort(
@@ -161,7 +163,7 @@ const FlightInformationBox = ({ data }: FlightProps) => {
                                         {flight.departure.estimated &&
                                             flight.departure.estimated !==
                                                 flight.departure.scheduled && (
-                                                <div className="text-sm line-through text-muted-foreground mt-1">
+                                                <div className="hidden sm:block text-sm line-through text-muted-foreground mt-1">
                                                     {timeOnly(
                                                         flight.departure
                                                             .scheduled,
@@ -199,7 +201,8 @@ const FlightInformationBox = ({ data }: FlightProps) => {
 
                                 {/* Arrivo */}
                                 <div className="space-y-3 md:pl-6 sm:w-full">
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-start gap-4">
+                                        <PlaneLanding />
                                         <h3 className="font-semibold text-blue-400">
                                             {flight.arrival.airport} ·{" "}
                                             {dateShort(
@@ -268,7 +271,7 @@ const FlightInformationBox = ({ data }: FlightProps) => {
                             Aggiornato: {new Date().toLocaleString()}
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            Fonte: aviationstack.com
+                            Fonte: <Link href={'https://aviationstack.com/'} target="_blank" className="underline">aviationstack.com</Link>
                         </p>
                     </div>
                 </CardFooter>

@@ -8,7 +8,7 @@
     "data": [
         {
             "flight_date": "2025-09-17",
-            "flight_status": "scheduled",
+            "flight_status": "cancelled",
             "departure": {
                 "airport": "Gatwick",
                 "timezone": "Europe/London",

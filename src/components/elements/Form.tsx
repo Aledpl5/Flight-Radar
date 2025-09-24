@@ -33,7 +33,7 @@ const Form = () => {
                 <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white">Cerca il tuo volo</h1>
                 <p className="text-gray-500 dark:text-gray-400 text-center">Inserisci il numero del volo di cui avere delle informazioni</p>
                 <Input type="string" placeholder="Numero del volo. EX: U28741" required onChange={e => {setCode(e.target.value)}}/>
-                <Input type="submit" value="Cerca" className="cursor-pointer bg-blue-500 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-800 ease-in-out transition-all text-white"/>
+                <Input type="submit" value="Cerca" className="text-center cursor-pointer bg-blue-500 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-800 ease-in-out transition-all text-white"/>
             </form>
         </div>
     )
