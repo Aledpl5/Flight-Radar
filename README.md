@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flight Radar
 
-## Getting Started
+In questa applicazione, usando le informazioni prese con l'API dal sito di [aviationstack.com](https://aviationstack.com/), vado a mostrare un'interfaccia in cui è possibile visualizzare quelle stesse informazioni.
 
-First, run the development server:
+## Funzionamento
+In primo luogo, l'utente viene indirizzato nella pagina di `Home` in cui si presenta un semplice form in cui occorre inserire il codice del volo da cercare.
+In particolare, a livello ufficiale, il valore da inserire è quello che in aviazione viene definito `flight iata`.
+
+A quel punto, se in la `REST API` possiede le informazioni, vengono mostrate con una UI moderna nella pagina apposita.
+Se si vuole cercare un altro volo, è possibile tornare alla pagina `Home` tramite il pulsante apposito.
+
+## Installazione
+Per installare l'applicazione, occorre clonare da github il pacchetto di codice. Aprire la repository in un IDE qualsiasi ed eseguire il comando:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Per installare la varie dipendenze.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Oltre a questo, occorre avere un account per sviluppatori (anche gratuito) sul sito di [avitationstack.com](https://aviationstack.com/) e in un file d'ambiente `.env` valorizzare la variabile `AVIATION_KEY` con il valore della propria `key`che viene fornita sul sito.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Avvio dell'applicazione
+A questo punto, a terminare eseguire il comando:
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Per far eseguire il programma sul browser solitamente alla link [localhost:3000](http://localhost:3000).
